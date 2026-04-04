@@ -1,0 +1,302 @@
+[
+  {
+    "id": 1,
+    "nim": "230000001",
+    "nama": "Ahmad Fauzan",
+    "email": "ahmad.fauzan@mahasiswa.upnvj.ac.id",
+    "jurusan": "Informatika",
+    "tanggal_lahir": "2004-01-12",
+    "created_at": "2026-04-04T08:00:00.000Z",
+    "updated_at": "2026-04-04T08:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "nim": "230000002",
+    "nama": "Siti Nabila",
+    "email": "siti.nabila@mahasiswa.upnvj.ac.id",
+    "jurusan": "Sistem Informasi",
+    "tanggal_lahir": "2003-11-08",
+    "created_at": "2026-04-04T08:01:00.000Z",
+    "updated_at": "2026-04-04T08:01:00.000Z"
+  },
+  {
+    "id": 3,
+    "nim": "230000003",
+    "nama": "Budi Santoso",
+    "email": "budi.santoso@mahasiswa.upnvj.ac.id",
+    "jurusan": "Teknik Elektro",
+    "tanggal_lahir": "2003-05-21",
+    "created_at": "2026-04-04T08:02:00.000Z",
+    "updated_at": "2026-04-04T08:02:00.000Z"
+  },
+  {
+    "id": 4,
+    "nim": "230000004",
+    "nama": "Dewi Lestari",
+    "email": "dewi.lestari@mahasiswa.upnvj.ac.id",
+    "jurusan": "Manajemen",
+    "tanggal_lahir": "2004-03-15",
+    "created_at": "2026-04-04T08:03:00.000Z",
+    "updated_at": "2026-04-04T08:03:00.000Z"
+  },
+  {
+    "id": 5,
+    "nim": "230000005",
+    "nama": "Rizky Pratama",
+    "email": "rizky.pratama@mahasiswa.upnvj.ac.id",
+    "jurusan": "Informatika",
+    "tanggal_lahir": "2002-12-02",
+    "created_at": "2026-04-04T08:04:00.000Z",
+    "updated_at": "2026-04-04T08:04:00.000Z"
+  },
+  {
+    "id": 6,
+    "nim": "230000006",
+    "nama": "Ayu Kartika",
+    "email": "ayu.kartika@mahasiswa.upnvj.ac.id",
+    "jurusan": "Sistem Informasi",
+    "tanggal_lahir": "2003-09-10",
+    "created_at": "2026-04-04T08:05:00.000Z",
+    "updated_at": "2026-04-04T08:05:00.000Z"
+  },
+  {
+    "id": 7,
+    "nim": "230000007",
+    "nama": "Fajar Nugroho",
+    "email": "fajar.nugroho@mahasiswa.upnvj.ac.id",
+    "jurusan": "Teknik Elektro",
+    "tanggal_lahir": "2004-06-18",
+    "created_at": "2026-04-04T08:06:00.000Z",
+    "updated_at": "2026-04-04T08:06:00.000Z"
+  },
+  {
+    "id": 8,
+    "nim": "230000008",
+    "nama": "Nadia Putri",
+    "email": "nadia.putri@mahasiswa.upnvj.ac.id",
+    "jurusan": "Manajemen",
+    "tanggal_lahir": "2003-02-27",
+    "created_at": "2026-04-04T08:07:00.000Z",
+    "updated_at": "2026-04-04T08:07:00.000Z"
+  },
+  {
+    "id": 9,
+    "nim": "230000009",
+    "nama": "Dimas Saputra",
+    "email": "dimas.saputra@mahasiswa.upnvj.ac.id",
+    "jurusan": "Informatika",
+    "tanggal_lahir": "2002-08-14",
+    "created_at": "2026-04-04T08:08:00.000Z",
+    "updated_at": "2026-04-04T08:08:00.000Z"
+  },
+  {
+    "id": 10,
+    "nim": "230000010",
+    "nama": "Lina Marlina",
+    "email": "lina.marlina@mahasiswa.upnvj.ac.id",
+    "jurusan": "Sistem Informasi",
+    "tanggal_lahir": "2004-04-01",
+    "created_at": "2026-04-04T08:09:00.000Z",
+    "updated_at": "2026-04-04T08:09:00.000Z"
+  },
+  {
+    "id": 11,
+    "nim": "230000011",
+    "nama": "Andi Wijaya",
+    "email": "andi.wijaya@mahasiswa.upnvj.ac.id",
+    "jurusan": "Teknik Elektro",
+    "tanggal_lahir": "2003-07-30",
+    "created_at": "2026-04-04T08:10:00.000Z",
+    "updated_at": "2026-04-04T08:10:00.000Z"
+  },
+  {
+    "id": 12,
+    "nim": "230000012",
+    "nama": "Maya Sari",
+    "email": "maya.sari@mahasiswa.upnvj.ac.id",
+    "jurusan": "Manajemen",
+    "tanggal_lahir": "2002-10-11",
+    "created_at": "2026-04-04T08:11:00.000Z",
+    "updated_at": "2026-04-04T08:11:00.000Z"
+  },
+  {
+    "id": 13,
+    "nim": "230000013",
+    "nama": "Reza Kurniawan",
+    "email": "reza.kurniawan@mahasiswa.upnvj.ac.id",
+    "jurusan": "Informatika",
+    "tanggal_lahir": "2004-01-25",
+    "created_at": "2026-04-04T08:12:00.000Z",
+    "updated_at": "2026-04-04T08:12:00.000Z"
+  },
+  {
+    "id": 14,
+    "nim": "230000014",
+    "nama": "Putri Ayuningtyas",
+    "email": "putri.ayuningtyas@mahasiswa.upnvj.ac.id",
+    "jurusan": "Sistem Informasi",
+    "tanggal_lahir": "2003-06-05",
+    "created_at": "2026-04-04T08:13:00.000Z",
+    "updated_at": "2026-04-04T08:13:00.000Z"
+  },
+  {
+    "id": 15,
+    "nim": "230000015",
+    "nama": "Yoga Prasetyo",
+    "email": "yoga.prasetyo@mahasiswa.upnvj.ac.id",
+    "jurusan": "Teknik Elektro",
+    "tanggal_lahir": "2002-09-19",
+    "created_at": "2026-04-04T08:14:00.000Z",
+    "updated_at": "2026-04-04T08:14:00.000Z"
+  },
+  {
+    "id": 16,
+    "nim": "230000016",
+    "nama": "Citra Ramadhani",
+    "email": "citra.ramadhani@mahasiswa.upnvj.ac.id",
+    "jurusan": "Manajemen",
+    "tanggal_lahir": "2004-02-08",
+    "created_at": "2026-04-04T08:15:00.000Z",
+    "updated_at": "2026-04-04T08:15:00.000Z"
+  },
+  {
+    "id": 17,
+    "nim": "230000017",
+    "nama": "Galih Ramadhan",
+    "email": "galih.ramadhan@mahasiswa.upnvj.ac.id",
+    "jurusan": "Informatika",
+    "tanggal_lahir": "2003-03-22",
+    "created_at": "2026-04-04T08:16:00.000Z",
+    "updated_at": "2026-04-04T08:16:00.000Z"
+  },
+  {
+    "id": 18,
+    "nim": "230000018",
+    "nama": "Intan Permata",
+    "email": "intan.permata@mahasiswa.upnvj.ac.id",
+    "jurusan": "Sistem Informasi",
+    "tanggal_lahir": "2002-11-29",
+    "created_at": "2026-04-04T08:17:00.000Z",
+    "updated_at": "2026-04-04T08:17:00.000Z"
+  },
+  {
+    "id": 19,
+    "nim": "230000019",
+    "nama": "Arif Hidayat",
+    "email": "arif.hidayat@mahasiswa.upnvj.ac.id",
+    "jurusan": "Teknik Elektro",
+    "tanggal_lahir": "2003-08-03",
+    "created_at": "2026-04-04T08:18:00.000Z",
+    "updated_at": "2026-04-04T08:18:00.000Z"
+  },
+  {
+    "id": 20,
+    "nim": "230000020",
+    "nama": "Salsa Aulia",
+    "email": "salsa.aulia@mahasiswa.upnvj.ac.id",
+    "jurusan": "Manajemen",
+    "tanggal_lahir": "2004-05-17",
+    "created_at": "2026-04-04T08:19:00.000Z",
+    "updated_at": "2026-04-04T08:19:00.000Z"
+  },
+  {
+    "id": 21,
+    "nim": "230000021",
+    "nama": "Kevin Aditya",
+    "email": "kevin.aditya@mahasiswa.upnvj.ac.id",
+    "jurusan": "Informatika",
+    "tanggal_lahir": "2002-07-09",
+    "created_at": "2026-04-04T08:20:00.000Z",
+    "updated_at": "2026-04-04T08:20:00.000Z"
+  },
+  {
+    "id": 22,
+    "nim": "230000022",
+    "nama": "Nabila Zahra",
+    "email": "nabila.zahra@mahasiswa.upnvj.ac.id",
+    "jurusan": "Sistem Informasi",
+    "tanggal_lahir": "2003-12-13",
+    "created_at": "2026-04-04T08:21:00.000Z",
+    "updated_at": "2026-04-04T08:21:00.000Z"
+  },
+  {
+    "id": 23,
+    "nim": "230000023",
+    "nama": "Rafi Maulana",
+    "email": "rafi.maulana@mahasiswa.upnvj.ac.id",
+    "jurusan": "Teknik Elektro",
+    "tanggal_lahir": "2004-03-30",
+    "created_at": "2026-04-04T08:22:00.000Z",
+    "updated_at": "2026-04-04T08:22:00.000Z"
+  },
+  {
+    "id": 24,
+    "nim": "230000024",
+    "nama": "Putra Firmansyah",
+    "email": "putra.firmansyah@mahasiswa.upnvj.ac.id",
+    "jurusan": "Manajemen",
+    "tanggal_lahir": "2002-01-05",
+    "created_at": "2026-04-04T08:23:00.000Z",
+    "updated_at": "2026-04-04T08:23:00.000Z"
+  },
+  {
+    "id": 25,
+    "nim": "230000025",
+    "nama": "Aldo Saputra",
+    "email": "aldo.saputra@mahasiswa.upnvj.ac.id",
+    "jurusan": "Informatika",
+    "tanggal_lahir": "2003-04-14",
+    "created_at": "2026-04-04T08:24:00.000Z",
+    "updated_at": "2026-04-04T08:24:00.000Z"
+  },
+  {
+    "id": 26,
+    "nim": "230000026",
+    "nama": "Fitri Handayani",
+    "email": "fitri.handayani@mahasiswa.upnvj.ac.id",
+    "jurusan": "Sistem Informasi",
+    "tanggal_lahir": "2004-06-01",
+    "created_at": "2026-04-04T08:25:00.000Z",
+    "updated_at": "2026-04-04T08:25:00.000Z"
+  },
+  {
+    "id": 27,
+    "nim": "230000027",
+    "nama": "Hendra Gunawan",
+    "email": "hendra.gunawan@mahasiswa.upnvj.ac.id",
+    "jurusan": "Teknik Elektro",
+    "tanggal_lahir": "2002-09-27",
+    "created_at": "2026-04-04T08:26:00.000Z",
+    "updated_at": "2026-04-04T08:26:00.000Z"
+  },
+  {
+    "id": 28,
+    "nim": "230000028",
+    "nama": "Vina Oktaviani",
+    "email": "vina.oktaviani@mahasiswa.upnvj.ac.id",
+    "jurusan": "Manajemen",
+    "tanggal_lahir": "2003-10-16",
+    "created_at": "2026-04-04T08:27:00.000Z",
+    "updated_at": "2026-04-04T08:27:00.000Z"
+  },
+  {
+    "id": 29,
+    "nim": "230000029",
+    "nama": "Bagas Prakoso",
+    "email": "bagas.prakoso@mahasiswa.upnvj.ac.id",
+    "jurusan": "Informatika",
+    "tanggal_lahir": "2004-02-20",
+    "created_at": "2026-04-04T08:28:00.000Z",
+    "updated_at": "2026-04-04T08:28:00.000Z"
+  },
+  {
+    "id": 30,
+    "nim": "230000030",
+    "nama": "Tari Wulandari",
+    "email": "tari.wulandari@mahasiswa.upnvj.ac.id",
+    "jurusan": "Sistem Informasi",
+    "tanggal_lahir": "2003-07-11",
+    "created_at": "2026-04-04T08:29:00.000Z",
+    "updated_at": "2026-04-04T08:29:00.000Z"
+  }
+]
