@@ -2,8 +2,17 @@
   {
     "id": 1,
     "email": "geraldo@example.com",
+    "name": "Benebeen",
     "password": "user1238891",
     "is_active": true,
     "register_date": "2026-04-04T14:30:00Z"
+  },
+  {
+    "id": 2,
+    "email": "bene@gmail.com",
+    "password": "bene123",
+    "name": "benw ben",
+    "is_active": true,
+    "register_date": "2026-04-05T04:31:25.461Z"
   }
 ]
