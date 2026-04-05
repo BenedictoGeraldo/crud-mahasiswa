@@ -4,8 +4,8 @@ import type {
   LoginPayload,
   LoginResult,
   RegisterPayload,
-  UserProfile,
 } from "@/features/auth/types/auth.type";
+import type { UserProfile } from "@/features/profile/types/profile.type";
 
 function unwrapApiResponse<T>(payload: ApiResponse<T>): T {
   if (!payload.success) {
@@ -38,11 +38,5 @@ export async function register(payload: RegisterPayload): Promise<UserProfile> {
     payload,
   );
 
-  return unwrapApiResponse(response.data);
-}
-
-export async function getProfile(): Promise<UserProfile> {
-  const response =
-    await axiosInstance.get<ApiResponse<UserProfile>>("/auth/profile");
   return unwrapApiResponse(response.data);
 }
