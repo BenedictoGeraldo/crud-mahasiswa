@@ -10,7 +10,6 @@ export function MahasiswaCreateView() {
   return (
     <Container maxWidth="md" className="py-8">
       <Paper elevation={0} className="p-8" sx={{ backgroundColor: "#f8f6f1" }}>
-        {/* Header */}
         <Box className="mb-8">
           <Typography variant="h4" className="font-bold text-gray-900 mb-2">
             Tambah Mahasiswa
@@ -20,7 +19,6 @@ export function MahasiswaCreateView() {
           </Typography>
         </Box>
 
-        {/* Form */}
         <MahasiswaForm
           form={form}
           onSubmit={onSubmit}
