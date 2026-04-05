@@ -10,6 +10,7 @@ import {
   type LoginSchema,
 } from "@/features/auth/schemas/login.schema";
 import { setAuthToken } from "@/lib/axios/client";
+import { useAuthStore } from "@/stores";
 
 type ApiLikeError = {
   message?: string;
@@ -17,6 +18,7 @@ type ApiLikeError = {
 
 export function useLoginForm() {
   const router = useRouter();
+  const setLoggedIn = useAuthStore((state) => state.setLoggedIn);
   const [formError, setFormError] = useState("");
 
   const form = useForm<LoginSchema>({
@@ -34,6 +36,7 @@ export function useLoginForm() {
 
       const response = await login(values);
       setAuthToken(response.token);
+      setLoggedIn(true);
 
       router.push("/mahasiswa");
     } catch (error: unknown) {

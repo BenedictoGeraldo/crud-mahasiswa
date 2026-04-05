@@ -8,7 +8,10 @@ type ApiErrorPayload = {
 
 const TOKEN_KEY = "auth_token";
 const EXPIRES_AT_KEY = "auth_token_expires_at";
-const SESSION_DURATION = 1000 * 60 * 60; // 1 jam
+const SESSION_DURATION = 1000 * 60 * 60;
+
+const TOKEN_COOKIE = "auth_token";
+const EXPIRES_COOKIE = "auth_token_expires_at";
 
 const PUBLIC_ROUTES = ["/auth/login", "/auth/register"];
 
@@ -20,6 +23,16 @@ export const axiosInstance = axios.create({
   },
 });
 
+function setCookie(name: string, value: string, maxAgeSeconds: number) {
+  if (typeof document === "undefined") return;
+  document.cookie = `${name}=${encodeURIComponent(value)}; Path=/; Max-Age=${maxAgeSeconds}; SameSite=Lax`;
+}
+
+function clearCookie(name: string) {
+  if (typeof document === "undefined") return;
+  document.cookie = `${name}=; Path=/; Max-Age=0; SameSite=Lax`;
+}
+
 axiosInstance.interceptors.request.use((config) => {
   if (typeof window === "undefined") return config;
 
@@ -28,7 +41,6 @@ axiosInstance.interceptors.request.use((config) => {
     requestUrl.startsWith(route),
   );
 
-  // Login/Register tidak butuh token
   if (isPublicRoute) return config;
 
   const token = window.localStorage.getItem(TOKEN_KEY);
@@ -36,8 +48,7 @@ axiosInstance.interceptors.request.use((config) => {
   const expiresAt = expiresAtStr ? Number(expiresAtStr) : null;
 
   if (!token || !expiresAt || Date.now() > expiresAt) {
-    window.localStorage.removeItem(TOKEN_KEY);
-    window.localStorage.removeItem(EXPIRES_AT_KEY);
+    clearAuthToken();
 
     if (Date.now() > (expiresAt ?? 0)) {
       window.location.href = "/login";
@@ -73,8 +84,13 @@ axiosInstance.interceptors.response.use(
 export function setAuthToken(token: string): void {
   if (typeof window !== "undefined") {
     const expiresAt = Date.now() + SESSION_DURATION;
+    const maxAge = Math.floor(SESSION_DURATION / 1000);
+
     window.localStorage.setItem(TOKEN_KEY, token);
     window.localStorage.setItem(EXPIRES_AT_KEY, String(expiresAt));
+
+    setCookie(TOKEN_COOKIE, token, maxAge);
+    setCookie(EXPIRES_COOKIE, String(expiresAt), maxAge);
   }
 }
 
@@ -82,6 +98,9 @@ export function clearAuthToken(): void {
   if (typeof window !== "undefined") {
     window.localStorage.removeItem(TOKEN_KEY);
     window.localStorage.removeItem(EXPIRES_AT_KEY);
+
+    clearCookie(TOKEN_COOKIE);
+    clearCookie(EXPIRES_COOKIE);
   }
 }
 
