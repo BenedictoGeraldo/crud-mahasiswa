@@ -44,19 +44,6 @@ npm run dev
 
 - http://localhost:3000
 
-4. (Opsional) Validasi lint
-
-```bash
-npm run lint
-```
-
-5. (Opsional) Build production
-
-```bash
-npm run build
-npm run start
-```
-
 ## Akun Uji
 
 - Bisa langsung register dari halaman /register.
