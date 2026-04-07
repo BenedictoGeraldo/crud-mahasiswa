@@ -1,35 +1,5 @@
 [
   {
-    "id": 1,
-    "nim": "230000001",
-    "nama": "Ahmad Fauzan",
-    "email": "ahmad.fauzan@mahasiswa.upnvj.ac.id",
-    "jurusan": "Informatika",
-    "tanggal_lahir": "2004-01-12",
-    "created_at": "2026-04-04T08:00:00.000Z",
-    "updated_at": "2026-04-04T08:00:00.000Z"
-  },
-  {
-    "id": 2,
-    "nim": "230000002",
-    "nama": "Siti Nabila",
-    "email": "siti.nabila@mahasiswa.upnvj.ac.id",
-    "jurusan": "Sistem Informasi",
-    "tanggal_lahir": "2003-11-08",
-    "created_at": "2026-04-04T08:01:00.000Z",
-    "updated_at": "2026-04-04T08:01:00.000Z"
-  },
-  {
-    "id": 3,
-    "nim": "230000003",
-    "nama": "Budi Santoso",
-    "email": "budi.santoso@mahasiswa.upnvj.ac.id",
-    "jurusan": "Teknik Elektro",
-    "tanggal_lahir": "2003-05-21",
-    "created_at": "2026-04-04T08:02:00.000Z",
-    "updated_at": "2026-04-04T08:02:00.000Z"
-  },
-  {
     "id": 4,
     "nim": "230000004",
     "nama": "Dewi Lestari",
@@ -37,7 +7,7 @@
     "jurusan": "Manajemen",
     "tanggal_lahir": "2004-03-15",
     "created_at": "2026-04-04T08:03:00.000Z",
-    "updated_at": "2026-04-04T08:03:00.000Z"
+    "updated_at": "2026-04-06T05:26:31.833Z"
   },
   {
     "id": 5,
@@ -48,16 +18,6 @@
     "tanggal_lahir": "2002-12-02",
     "created_at": "2026-04-04T08:04:00.000Z",
     "updated_at": "2026-04-04T08:04:00.000Z"
-  },
-  {
-    "id": 6,
-    "nim": "230000006",
-    "nama": "Ayu Kartika",
-    "email": "ayu.kartika@mahasiswa.upnvj.ac.id",
-    "jurusan": "Sistem Informasi",
-    "tanggal_lahir": "2003-09-10",
-    "created_at": "2026-04-04T08:05:00.000Z",
-    "updated_at": "2026-04-04T08:05:00.000Z"
   },
   {
     "id": 7,
@@ -298,5 +258,55 @@
     "tanggal_lahir": "2003-07-11",
     "created_at": "2026-04-04T08:29:00.000Z",
     "updated_at": "2026-04-04T08:29:00.000Z"
+  },
+  {
+    "id": 31,
+    "nim": "2100219912",
+    "nama": "beneben",
+    "email": "bene@gmail.com",
+    "jurusan": "Teknik Elektro",
+    "tanggal_lahir": "2003-04-05",
+    "created_at": "2026-04-05T13:32:31.277Z",
+    "updated_at": "2026-04-05T13:32:31.277Z"
+  },
+  {
+    "id": 32,
+    "nim": "22101512081",
+    "nama": "geraldo",
+    "email": "geraldodawa@gmail.com",
+    "jurusan": "Teknik Elektro",
+    "tanggal_lahir": "2026-04-05",
+    "created_at": "2026-04-05T13:56:15.724Z",
+    "updated_at": "2026-04-05T13:56:15.724Z"
+  },
+  {
+    "id": 33,
+    "nim": "2210512081",
+    "nama": "benedicto geraldo",
+    "email": "bunjk@gmail.com",
+    "jurusan": "Sistem Informasi",
+    "tanggal_lahir": "2026-04-07",
+    "created_at": "2026-04-06T04:22:12.694Z",
+    "updated_at": "2026-04-06T04:22:12.694Z"
+  },
+  {
+    "id": 34,
+    "nim": "22105120812",
+    "nama": "Lapangan A",
+    "email": "xray@gmail.com",
+    "jurusan": "Sistem Informasi",
+    "tanggal_lahir": "2026-04-08",
+    "created_at": "2026-04-06T04:23:05.530Z",
+    "updated_at": "2026-04-06T04:23:05.530Z"
+  },
+  {
+    "id": 35,
+    "nim": "23001101",
+    "nama": "nim123",
+    "email": "nim@gmaiol.com",
+    "jurusan": "Sistem Informasi",
+    "tanggal_lahir": "2026-04-02",
+    "created_at": "2026-04-06T04:38:31.992Z",
+    "updated_at": "2026-04-06T04:38:31.992Z"
   }
 ]

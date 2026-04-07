@@ -5,10 +5,15 @@ import {
   Box,
   Button,
   CircularProgress,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
   Paper,
   Stack,
   Typography,
 } from "@mui/material";
+import ArrowBackIosNewRoundedIcon from "@mui/icons-material/ArrowBackIosNewRounded";
 import { useRouter } from "next/navigation";
 import { MahasiswaForm } from "@/features/mahasiswa/components/mahasiswaForm";
 import { useEditMahasiswaForm } from "@/features/mahasiswa/hooks/useEditMahasiswaForm";
@@ -19,7 +24,15 @@ type MahasiswaEditViewProps = {
 
 export function MahasiswaEditView({ id }: MahasiswaEditViewProps) {
   const router = useRouter();
-  const { form, formError, loadingDetail, onSubmit } = useEditMahasiswaForm(id);
+  const {
+    form,
+    formError,
+    loadingDetail,
+    onSubmit,
+    showConfirmation,
+    onConfirmSave,
+    onCancelConfirmation,
+  } = useEditMahasiswaForm(id);
 
   return (
     <main className="min-h-screen bg-[#efede8] px-4 py-6 md:py-10">
@@ -53,10 +66,21 @@ export function MahasiswaEditView({ id }: MahasiswaEditViewProps) {
             </Box>
 
             <Button
-              variant="outlined"
-              onClick={() => router.push(`/mahasiswa/${id}`)}
+              variant="text"
+              startIcon={<ArrowBackIosNewRoundedIcon sx={{ fontSize: 16 }} />}
+              onClick={() => router.push(`/mahasiswa`)}
+              sx={{
+                textTransform: "none",
+                color: "#6b7280",
+                fontWeight: 600,
+                px: 0.5,
+                "&:hover": {
+                  backgroundColor: "transparent",
+                  color: "#1f2937",
+                },
+              }}
             >
-              Kembali ke Detail
+              Kembali
             </Button>
           </Stack>
 
@@ -80,6 +104,37 @@ export function MahasiswaEditView({ id }: MahasiswaEditViewProps) {
           )}
         </Paper>
       </Box>
+
+      <Dialog open={showConfirmation} onClose={onCancelConfirmation}>
+        <DialogTitle>Konfirmasi Penyimpanan</DialogTitle>
+        <DialogContent>
+          <Typography>
+            Apakah Anda yakin ingin menyimpan perubahan data mahasiswa ini?
+          </Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button
+            onClick={onCancelConfirmation}
+            variant="outlined"
+            sx={{ textTransform: "none" }}
+          >
+            Batal
+          </Button>
+          <Button
+            onClick={() => {
+              void onConfirmSave();
+            }}
+            variant="contained"
+            sx={{
+              backgroundColor: "#c9a227",
+              textTransform: "none",
+              "&:hover": { backgroundColor: "#b48e1f" },
+            }}
+          >
+            Ya, Simpan
+          </Button>
+        </DialogActions>
+      </Dialog>
     </main>
   );
 }

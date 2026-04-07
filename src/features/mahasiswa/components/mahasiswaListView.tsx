@@ -68,6 +68,16 @@ export function MahasiswaListView() {
               onChange={(_, nextPage) => setPage(nextPage)}
               color="primary"
               shape="rounded"
+              sx={{
+                "& .MuiPaginationItem-page.Mui-selected": {
+                  backgroundColor: "#1d4e89 !important",
+                  color: "#fff !important",
+                  fontWeight: 600,
+                },
+                "& .MuiPaginationItem-page:hover": {
+                  backgroundColor: "rgba(29, 78, 137, 0.1)",
+                },
+              }}
             />
           </Stack>
         </Paper>

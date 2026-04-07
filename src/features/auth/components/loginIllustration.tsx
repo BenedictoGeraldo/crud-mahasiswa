@@ -9,7 +9,7 @@ export function LoginIllustration() {
       <div className="absolute inset-0 bg-linear-to-br from-[#f5ebd1] via-[#f2e7cc] to-[#e9d9ac]" />
       <div className="relative h-full p-8">
         <Typography
-          variant="h5"
+          variant="h3"
           sx={{ color: "#8f6f16", fontWeight: 800, letterSpacing: 0.4 }}
         >
           SIMM
@@ -17,7 +17,7 @@ export function LoginIllustration() {
 
         <Typography
           variant="h6"
-          sx={{ color: "#6b7280", mt: 1, maxWidth: 360 }}
+          sx={{ fontWeight: 550, color: "#6b7280", maxWidth: 360 }}
         >
           Sistem Informasi Manajemen Mahasiswa
         </Typography>

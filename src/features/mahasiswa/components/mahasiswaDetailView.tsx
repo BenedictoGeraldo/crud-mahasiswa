@@ -10,6 +10,8 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import ArrowBackIosNewRoundedIcon from "@mui/icons-material/ArrowBackIosNewRounded";
+import dayjs from "dayjs";
 import { useRouter } from "next/navigation";
 import { useMahasiswaDetail } from "@/features/mahasiswa/hooks/useMahasiswaDetail";
 
@@ -39,6 +41,12 @@ function DetailItem({
 export function MahasiswaDetailView({ id }: MahasiswaDetailViewProps) {
   const router = useRouter();
   const { data, loading, errorMessage } = useMahasiswaDetail(id);
+
+  const formatDateOnly = (value?: string | null) => {
+    if (!value) return "-";
+    const parsed = dayjs(value);
+    return parsed.isValid() ? parsed.format("YYYY-MM-DD") : value;
+  };
 
   return (
     <main className="min-h-screen bg-[#efede8] px-4 py-6 md:py-10">
@@ -71,24 +79,23 @@ export function MahasiswaDetailView({ id }: MahasiswaDetailViewProps) {
               </Typography>
             </Box>
 
-            <Stack direction="row" spacing={1.5}>
-              <Button
-                variant="outlined"
-                onClick={() => router.push("/mahasiswa")}
-              >
-                Kembali
-              </Button>
-              <Button
-                variant="contained"
-                onClick={() => router.push(`/mahasiswa/${id}/edit`)}
-                sx={{
-                  backgroundColor: "#c9a227",
-                  "&:hover": { backgroundColor: "#b48e1f" },
-                }}
-              >
-                Edit
-              </Button>
-            </Stack>
+            <Button
+              variant="text"
+              startIcon={<ArrowBackIosNewRoundedIcon sx={{ fontSize: 16 }} />}
+              onClick={() => router.push("/mahasiswa")}
+              sx={{
+                textTransform: "none",
+                color: "#6b7280",
+                fontWeight: 600,
+                px: 0.5,
+                "&:hover": {
+                  backgroundColor: "transparent",
+                  color: "#1f2937",
+                },
+              }}
+            >
+              Kembali
+            </Button>
           </Stack>
 
           <Divider sx={{ mb: 3 }} />
@@ -105,17 +112,22 @@ export function MahasiswaDetailView({ id }: MahasiswaDetailViewProps) {
 
           {!loading && !errorMessage && data ? (
             <Stack spacing={2.5}>
-              <DetailItem label="ID" value={data.id} />
               <DetailItem label="NIM" value={data.nim} />
               <DetailItem label="Nama" value={data.nama} />
               <DetailItem label="Email" value={data.email} />
               <DetailItem label="Jurusan" value={data.jurusan} />
               <DetailItem
                 label="Tanggal Lahir"
-                value={data.tanggal_lahir ?? "-"}
+                value={formatDateOnly(data.tanggal_lahir)}
               />
-              <DetailItem label="Dibuat Pada" value={data.created_at} />
-              <DetailItem label="Diupdate Pada" value={data.updated_at} />
+              <DetailItem
+                label="Dibuat Pada"
+                value={formatDateOnly(data.created_at)}
+              />
+              <DetailItem
+                label="Diupdate Pada"
+                value={formatDateOnly(data.updated_at)}
+              />
             </Stack>
           ) : null}
         </Paper>

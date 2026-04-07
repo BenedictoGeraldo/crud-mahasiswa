@@ -2,8 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import {
-  Button,
   CircularProgress,
+  IconButton,
   Stack,
   Table,
   TableBody,
@@ -11,7 +11,11 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  Tooltip,
 } from "@mui/material";
+import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
+import EditSquareIcon from "@mui/icons-material/EditSquare";
+import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import type { Mahasiswa } from "@/features/mahasiswa/types/mahasiswa.type";
 
 type Props = {
@@ -34,11 +38,13 @@ export function MahasiswaListTable({
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>NIM</TableCell>
-            <TableCell>Nama</TableCell>
-            <TableCell>Email</TableCell>
-            <TableCell>Jurusan</TableCell>
-            <TableCell align="center">Aksi</TableCell>
+            <TableCell sx={{ fontWeight: 600 }}>NIM</TableCell>
+            <TableCell sx={{ fontWeight: 600 }}>Nama</TableCell>
+            <TableCell sx={{ fontWeight: 600 }}>Email</TableCell>
+            <TableCell sx={{ fontWeight: 600 }}>Jurusan</TableCell>
+            <TableCell align="center" sx={{ fontWeight: 600 }}>
+              Aksi
+            </TableCell>
           </TableRow>
         </TableHead>
 
@@ -67,36 +73,45 @@ export function MahasiswaListTable({
                 <TableCell>{item.email}</TableCell>
                 <TableCell>{item.jurusan}</TableCell>
                 <TableCell align="right">
-                  <Stack direction="row" spacing={1} justifyContent="flex-end">
-                    <Button
-                      size="small"
-                      variant="outlined"
-                      onClick={() => router.push("/mahasiswa/" + item.id)}
-                      sx={{ textTransform: "none" }}
-                    >
-                      Detail
-                    </Button>
+                  <Stack
+                    direction="row"
+                    spacing={0.5}
+                    justifyContent="flex-end"
+                  >
+                    <Tooltip title="Lihat detail">
+                      <IconButton
+                        size="small"
+                        onClick={() => router.push("/mahasiswa/" + item.id)}
+                        sx={{ color: "#1d4e89" }}
+                        aria-label="Lihat detail mahasiswa"
+                      >
+                        <RemoveRedEyeOutlinedIcon fontSize="small" />
+                      </IconButton>
+                    </Tooltip>
 
-                    <Button
-                      size="small"
-                      variant="outlined"
-                      onClick={() =>
-                        router.push("/mahasiswa/" + item.id + "/edit")
-                      }
-                      sx={{ textTransform: "none" }}
-                    >
-                      Edit
-                    </Button>
+                    <Tooltip title="Edit">
+                      <IconButton
+                        size="small"
+                        onClick={() =>
+                          router.push("/mahasiswa/" + item.id + "/edit")
+                        }
+                        sx={{ color: "#be931b" }}
+                        aria-label="Edit mahasiswa"
+                      >
+                        <EditSquareIcon fontSize="small" />
+                      </IconButton>
+                    </Tooltip>
 
-                    <Button
-                      size="small"
-                      color="error"
-                      variant="outlined"
-                      onClick={() => onDelete(item)}
-                      sx={{ textTransform: "none" }}
-                    >
-                      Hapus
-                    </Button>
+                    <Tooltip title="Hapus">
+                      <IconButton
+                        size="small"
+                        onClick={() => onDelete(item)}
+                        sx={{ color: "#b42318" }}
+                        aria-label="Hapus mahasiswa"
+                      >
+                        <DeleteOutlinedIcon fontSize="small" />
+                      </IconButton>
+                    </Tooltip>
                   </Stack>
                 </TableCell>
               </TableRow>

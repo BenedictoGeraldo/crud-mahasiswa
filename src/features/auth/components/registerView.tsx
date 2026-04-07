@@ -6,7 +6,7 @@ import { RegisterFormCard } from "./registerFormCard";
 
 export function RegisterView() {
   return (
-    <main className="min-h-screen bg-[#efede8]">
+    <main className="min-h-screen bg-[#f8f8f7]">
       <div className="mx-auto flex min-h-[calc(100vh-3rem)] max-w-6xl items-center">
         <Paper
           elevation={0}

@@ -15,6 +15,19 @@ import {
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useRegisterForm } from "../hooks/useRegisterForm";
 
+const authInputSx = {
+  "& .MuiOutlinedInput-root": {
+    borderRadius: "14px",
+    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+      borderColor: "#b48e1f",
+      borderWidth: 2,
+    },
+  },
+  "& .MuiInputLabel-root.Mui-focused": {
+    color: "#8f6f16",
+  },
+};
+
 export function RegisterFormCard() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -35,7 +48,10 @@ export function RegisterFormCard() {
           Register
         </Typography>
 
-        <Typography variant="body2" sx={{ color: "#6b7280", mb: 3 }}>
+        <Typography
+          variant="body2"
+          sx={{ fontWeight: 550, color: "#6b7280", mb: 3 }}
+        >
           Buat akun untuk mengakses SIMM.
         </Typography>
 
@@ -56,6 +72,7 @@ export function RegisterFormCard() {
             label="Nama Lengkap"
             fullWidth
             margin="normal"
+            sx={authInputSx}
             {...register("name")}
             error={Boolean(errors.name)}
             helperText={errors.name?.message}
@@ -65,6 +82,7 @@ export function RegisterFormCard() {
             label="Email"
             fullWidth
             margin="normal"
+            sx={authInputSx}
             {...register("email")}
             error={Boolean(errors.email)}
             helperText={errors.email?.message}
@@ -75,6 +93,7 @@ export function RegisterFormCard() {
             type={showPassword ? "text" : "password"}
             fullWidth
             margin="normal"
+            sx={authInputSx}
             {...register("password")}
             error={Boolean(errors.password)}
             helperText={errors.password?.message}
@@ -98,6 +117,7 @@ export function RegisterFormCard() {
             type={showConfirmPassword ? "text" : "password"}
             fullWidth
             margin="normal"
+            sx={authInputSx}
             {...register("confirmPassword")}
             error={Boolean(errors.confirmPassword)}
             helperText={errors.confirmPassword?.message}
