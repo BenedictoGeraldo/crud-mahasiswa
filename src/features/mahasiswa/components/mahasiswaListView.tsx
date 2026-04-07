@@ -1,7 +1,7 @@
 "use client";
 
 import { Alert, Box, Pagination, Paper, Stack } from "@mui/material";
-import { MahasiswaDeleteDialog } from "@/features/mahasiswa/components/mahasiswaDeleteDialog";
+import { GlobalDialog } from "@/components/ui/globalDialog";
 import { MahasiswaListTable } from "@/features/mahasiswa/components/mahasiswaListTable";
 import { MahasiswaListToolbar } from "@/features/mahasiswa/components/mahasiswaListToolbar";
 import { useMahasiswaList } from "@/features/mahasiswa/hooks/useMahasiswaList";
@@ -68,16 +68,33 @@ export function MahasiswaListView() {
               onChange={(_, nextPage) => setPage(nextPage)}
               color="primary"
               shape="rounded"
+              sx={{
+                "& .MuiPaginationItem-page.Mui-selected": {
+                  backgroundColor: "#1d4e89 !important",
+                  color: "#fff !important",
+                  fontWeight: 600,
+                },
+                "& .MuiPaginationItem-page:hover": {
+                  backgroundColor: "rgba(29, 78, 137, 0.1)",
+                },
+              }}
             />
           </Stack>
         </Paper>
       </Box>
 
-      <MahasiswaDeleteDialog
-        selectedDelete={selectedDelete}
-        deleting={deleting}
+      <GlobalDialog
+        open={Boolean(selectedDelete)}
+        title="Hapus Data Mahasiswa"
+        message={`Yakin inging menghapus data ${selectedDelete?.nama} (${selectedDelete?.nim})?`}
         onClose={closeDeleteDialog}
-        onConfirm={confirmDelete}
+        onConfirm={() => {
+          void confirmDelete();
+        }}
+        confirmText={deleting ? "Menghapus..." : "Hapus"}
+        cancelText="Batal"
+        loading={deleting}
+        destructive
       />
     </main>
   );

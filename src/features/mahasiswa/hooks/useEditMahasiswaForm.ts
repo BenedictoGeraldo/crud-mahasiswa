@@ -18,12 +18,17 @@ type UseEditMahasiswaFormResult = {
   formError: string;
   loadingDetail: boolean;
   onSubmit: (data: MahasiswaSchema) => Promise<void>;
+  showConfirmation: boolean;
+  onConfirmSave: () => Promise<void>;
+  onCancelConfirmation: () => void;
 };
 
 export function useEditMahasiswaForm(id: number): UseEditMahasiswaFormResult {
   const router = useRouter();
   const [formError, setFormError] = useState<string>("");
   const [loadingDetail, setLoadingDetail] = useState<boolean>(true);
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [pendingData, setPendingData] = useState<MahasiswaSchema | null>(null);
 
   const form = useForm<MahasiswaSchema>({
     resolver: zodResolver(mahasiswaSchema),
@@ -31,7 +36,7 @@ export function useEditMahasiswaForm(id: number): UseEditMahasiswaFormResult {
       nim: "",
       nama: "",
       email: "",
-      jurusan: undefined,
+      jurusan: "",
       tanggal_lahir: "",
     },
   });
@@ -82,9 +87,22 @@ export function useEditMahasiswaForm(id: number): UseEditMahasiswaFormResult {
   }, [id, form]);
 
   const onSubmit = async (data: MahasiswaSchema) => {
+    if (!form.formState.isDirty) {
+      return;
+    }
+
+    setPendingData(data);
+    setShowConfirmation(true);
+  };
+
+  const onConfirmSave = async () => {
+    if (!pendingData) return;
+
     try {
       setFormError("");
-      await updateMahasiswa(id, data);
+      await updateMahasiswa(id, pendingData);
+      setShowConfirmation(false);
+      setPendingData(null);
       router.push(`/mahasiswa/${id}`);
     } catch (error: unknown) {
       const message =
@@ -92,8 +110,22 @@ export function useEditMahasiswaForm(id: number): UseEditMahasiswaFormResult {
           ? error.message
           : "Gagal memperbarui data mahasiswa.";
       setFormError(message);
+      setShowConfirmation(false);
     }
   };
 
-  return { form, formError, loadingDetail, onSubmit };
+  const onCancelConfirmation = () => {
+    setShowConfirmation(false);
+    setPendingData(null);
+  };
+
+  return {
+    form,
+    formError,
+    loadingDetail,
+    onSubmit,
+    showConfirmation,
+    onConfirmSave,
+    onCancelConfirmation,
+  };
 }

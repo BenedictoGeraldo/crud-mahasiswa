@@ -15,6 +15,19 @@ import {
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useLoginForm } from "@/features/auth/hooks/useLoginForm";
 
+const authInputSx = {
+  "& .MuiOutlinedInput-root": {
+    borderRadius: "14px",
+    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+      borderColor: "#b48e1f",
+      borderWidth: 2,
+    },
+  },
+  "& .MuiInputLabel-root.Mui-focused": {
+    color: "#8f6f16",
+  },
+};
+
 export function LoginFormCard() {
   const [showPassword, setShowPassword] = useState(false);
   const { form, formError, onSubmit } = useLoginForm();
@@ -34,7 +47,10 @@ export function LoginFormCard() {
           Login
         </Typography>
 
-        <Typography variant="body2" sx={{ color: "#6b7280", mb: 4 }}>
+        <Typography
+          variant="body2"
+          sx={{ fontWeight: 550, color: "#6b7280", mb: 4 }}
+        >
           Masuk untuk mengelola data mahasiswa.
         </Typography>
 
@@ -49,6 +65,7 @@ export function LoginFormCard() {
             label="Email"
             fullWidth
             margin="normal"
+            sx={authInputSx}
             {...register("email")}
             error={Boolean(errors.email)}
             helperText={errors.email?.message}
@@ -59,6 +76,7 @@ export function LoginFormCard() {
             type={showPassword ? "text" : "password"}
             fullWidth
             margin="normal"
+            sx={authInputSx}
             {...register("password")}
             error={Boolean(errors.password)}
             helperText={errors.password?.message}

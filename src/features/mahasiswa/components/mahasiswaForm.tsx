@@ -2,7 +2,7 @@
 
 import { TextField, Button, MenuItem, Alert, Box } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import { UseFormReturn } from "react-hook-form";
+import { Controller, UseFormReturn } from "react-hook-form";
 import {
   MahasiswaSchema,
   jurusanOptions,
@@ -11,6 +11,26 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
+
+const textFieldSx = {
+  "& .MuiInputLabel-root.Mui-focused": {
+    color: "#111827",
+  },
+  "& .MuiOutlinedInput-root": {
+    borderRadius: "10px",
+    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+      borderColor: "#c9a227",
+      borderWidth: "2px",
+    },
+  },
+  "& .MuiInputBase-root": {
+    borderRadius: "10px",
+  },
+  "& .MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+    borderColor: "#c9a227",
+    borderWidth: "2px",
+  },
+};
 
 interface MahasiswaFormProps {
   form: UseFormReturn<MahasiswaSchema>;
@@ -28,6 +48,7 @@ export function MahasiswaForm({
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
     watch,
     setValue,
@@ -49,6 +70,7 @@ export function MahasiswaForm({
             error={!!errors.nim}
             helperText={errors.nim?.message}
             disabled={isLoading}
+            sx={textFieldSx}
           />
         </Grid>
 
@@ -61,6 +83,7 @@ export function MahasiswaForm({
             error={!!errors.nama}
             helperText={errors.nama?.message}
             disabled={isLoading}
+            sx={textFieldSx}
           />
         </Grid>
 
@@ -74,26 +97,37 @@ export function MahasiswaForm({
             error={!!errors.email}
             helperText={errors.email?.message}
             disabled={isLoading}
+            sx={textFieldSx}
           />
         </Grid>
 
         <Grid size={{ xs: 12, sm: 6 }}>
-          <TextField
-            fullWidth
-            select
-            label="Jurusan"
-            {...register("jurusan")}
-            error={!!errors.jurusan}
-            helperText={errors.jurusan?.message}
-            disabled={isLoading}
-          >
-            <MenuItem value="">Pilih Jurusan</MenuItem>
-            {jurusanOptions.map((jurusan) => (
-              <MenuItem key={jurusan} value={jurusan}>
-                {jurusan}
-              </MenuItem>
-            ))}
-          </TextField>
+          <Controller
+            name="jurusan"
+            control={control}
+            render={({ field }) => (
+              <TextField
+                fullWidth
+                select
+                label="Jurusan"
+                value={field.value ?? ""}
+                onChange={field.onChange}
+                onBlur={field.onBlur}
+                inputRef={field.ref}
+                error={!!errors.jurusan}
+                helperText={errors.jurusan?.message}
+                disabled={isLoading}
+                sx={textFieldSx}
+              >
+                <MenuItem value="">Pilih Jurusan</MenuItem>
+                {jurusanOptions.map((jurusan) => (
+                  <MenuItem key={jurusan} value={jurusan}>
+                    {jurusan}
+                  </MenuItem>
+                ))}
+              </TextField>
+            )}
+          />
         </Grid>
 
         <Grid size={{ xs: 12, sm: 6 }}>
@@ -118,6 +152,7 @@ export function MahasiswaForm({
                   error: !!errors.tanggal_lahir,
                   helperText: errors.tanggal_lahir?.message,
                   disabled: isLoading,
+                  sx: textFieldSx,
                 },
               }}
             />
@@ -132,6 +167,9 @@ export function MahasiswaForm({
           disabled={isLoading}
           sx={{
             backgroundColor: "#c9a227",
+            textTransform: "none",
+            borderRadius: "8px",
+            fontWeight: 600,
             "&:hover": { backgroundColor: "#b48e1f" },
           }}
         >
@@ -143,6 +181,11 @@ export function MahasiswaForm({
           type="button"
           onClick={() => window.history.back()}
           disabled={isLoading}
+          sx={{
+            textTransform: "none",
+            borderRadius: "8px",
+            fontWeight: 600,
+          }}
         >
           Batal
         </Button>

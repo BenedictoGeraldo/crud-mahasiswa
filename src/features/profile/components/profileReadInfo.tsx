@@ -32,7 +32,6 @@ type ProfileReadInfoProps = {
 export function ProfileReadInfo({ profile }: ProfileReadInfoProps) {
   return (
     <>
-      <ProfileField label="ID User" value={String(profile.id)} />
       <ProfileField
         label="Status Akun"
         value={profile.is_active ? "Aktif" : "Tidak Aktif"}
