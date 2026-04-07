@@ -1,15 +1,8 @@
+"use client";
 import { useState } from "react";
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  Stack,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Button, Stack, TextField } from "@mui/material";
 import type { UseFormReturn } from "react-hook-form";
+import { GlobalDialog } from "@/components/ui/globalDialog";
 import type { ProfileSchema } from "@/features/profile/schemas/profile.schema";
 
 const primaryButtonSx = {
@@ -134,42 +127,18 @@ export function ProfileEditForm({
         </Stack>
       </form>
 
-      <Dialog open={showConfirmDialog} onClose={handleCancelSave}>
-        <DialogTitle>Konfirmasi Penyimpanan</DialogTitle>
-        <DialogContent>
-          <Typography>
-            Apakah Anda yakin ingin menyimpan perubahan data profil ini?
-          </Typography>
-        </DialogContent>
-        <DialogActions>
-          <Button
-            onClick={handleCancelSave}
-            variant="outlined"
-            sx={{
-              textTransform: "none",
-              fontSize: { xs: "0.8rem", sm: "0.9rem" },
-              minHeight: { xs: 32, sm: 36 },
-            }}
-          >
-            Batal
-          </Button>
-          <Button
-            onClick={() => {
-              void handleConfirmSave();
-            }}
-            variant="contained"
-            sx={{
-              backgroundColor: "#c9a227",
-              textTransform: "none",
-              fontSize: { xs: "0.8rem", sm: "0.9rem" },
-              minHeight: { xs: 32, sm: 36 },
-              "&:hover": { backgroundColor: "#b48e1f" },
-            }}
-          >
-            Ya, Simpan
-          </Button>
-        </DialogActions>
-      </Dialog>
+      <GlobalDialog
+        open={showConfirmDialog}
+        title="Konfirmasi Penyimpanan"
+        message="Apakah Anda yakin ingin menyimpan perubahan data profil ini?"
+        onClose={handleCancelSave}
+        onConfirm={() => {
+          void handleConfirmSave();
+        }}
+        confirmText="Ya, Simpan"
+        cancelText="Batal"
+        loading={isSubmitting}
+      />
     </>
   );
 }

@@ -10,8 +10,10 @@ export const jurusanOptions = [
 export const mahasiswaSchema = z.object({
   nim: z
     .string()
+    .regex(/^[0-9]+$/, "NIM hanya boleh angka")
     .min(1, "NIM wajib diisi")
-    .regex(/^[0-9]+$/, "NIM hanya boleh angka"),
+    .min(10, "Nim minimal 10 karakter")
+    .max(10, "Nim hanya boleh 10 karakter"),
   nama: z.string().min(1, "Nama wajib diisi"),
   email: z
     .string()

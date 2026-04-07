@@ -71,7 +71,7 @@ export function DashboardNavbar() {
           zIndex: 39,
           backdropFilter: "blur(10px)",
           backgroundColor: "rgba(239, 237, 232, 0.45)",
-          WebkitBackdropFilter: "blur(50px)",
+          WebkitBackdropFilter: "blur(100px)",
           pointerEvents: "none",
         }}
       />
@@ -83,8 +83,7 @@ export function DashboardNavbar() {
           backgroundColor: "rgba(248, 246, 241, 0.76)",
           backdropFilter: "blur(10px)",
           WebkitBackdropFilter: "blur(10px)",
-          minHeight: { xs: 65, sm: 80 },
-          width: { xs: "100%", sm: "94%", md: "90%", lg: "86%" },
+          minHeight: { xs: 65, sm: 70 },
           mx: "auto",
           px: { xs: 2, md: 3 },
           py: { xs: 1.2, sm: 1.5 },

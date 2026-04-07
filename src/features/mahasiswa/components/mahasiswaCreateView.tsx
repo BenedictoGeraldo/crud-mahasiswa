@@ -1,17 +1,8 @@
 "use client";
 
-import {
-  Paper,
-  Container,
-  Typography,
-  Box,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  Button,
-} from "@mui/material";
+import { Paper, Container, Typography, Box } from "@mui/material";
 import { MahasiswaForm } from "./mahasiswaForm";
+import { GlobalDialog } from "@/components/ui/globalDialog";
 import { useCreateMahasiswaForm } from "@/features/mahasiswa/hooks/useCreateMahasiswaForm";
 
 export function MahasiswaCreateView() {
@@ -47,34 +38,18 @@ export function MahasiswaCreateView() {
         />
       </Paper>
 
-      <Dialog open={showConfirmation} onClose={onCancelConfirmation}>
-        <DialogTitle>Konfirmasi Penyimpanan</DialogTitle>
-        <DialogContent>
-          <Typography>
-            Apakah Anda yakin ingin menyimpan data mahasiswa ini?
-          </Typography>
-        </DialogContent>
-        <DialogActions>
-          <Button
-            onClick={onCancelConfirmation}
-            variant="outlined"
-            sx={{ textTransform: "none" }}
-          >
-            Batal
-          </Button>
-          <Button
-            onClick={onConfirmSave}
-            variant="contained"
-            sx={{
-              backgroundColor: "#c9a227",
-              textTransform: "none",
-              "&:hover": { backgroundColor: "#b48e1f" },
-            }}
-          >
-            Ya, Simpan
-          </Button>
-        </DialogActions>
-      </Dialog>
+      <GlobalDialog
+        open={showConfirmation}
+        title="Konfirmasi Penyimpanan"
+        message="Apakah Anda yakin ingin menyimpan data mahasiswa ini?"
+        onClose={onCancelConfirmation}
+        onConfirm={() => {
+          void onConfirmSave();
+        }}
+        confirmText="Ya, Simpan"
+        cancelText="Batal"
+        loading={form.formState.isSubmitting}
+      />
     </Container>
   );
 }

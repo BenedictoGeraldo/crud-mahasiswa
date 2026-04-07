@@ -5,16 +5,13 @@ import {
   Box,
   Button,
   CircularProgress,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
   Paper,
   Stack,
   Typography,
 } from "@mui/material";
 import ArrowBackIosNewRoundedIcon from "@mui/icons-material/ArrowBackIosNewRounded";
 import { useRouter } from "next/navigation";
+import { GlobalDialog } from "@/components/ui/globalDialog";
 import { MahasiswaForm } from "@/features/mahasiswa/components/mahasiswaForm";
 import { useEditMahasiswaForm } from "@/features/mahasiswa/hooks/useEditMahasiswaForm";
 
@@ -105,36 +102,18 @@ export function MahasiswaEditView({ id }: MahasiswaEditViewProps) {
         </Paper>
       </Box>
 
-      <Dialog open={showConfirmation} onClose={onCancelConfirmation}>
-        <DialogTitle>Konfirmasi Penyimpanan</DialogTitle>
-        <DialogContent>
-          <Typography>
-            Apakah Anda yakin ingin menyimpan perubahan data mahasiswa ini?
-          </Typography>
-        </DialogContent>
-        <DialogActions>
-          <Button
-            onClick={onCancelConfirmation}
-            variant="outlined"
-            sx={{ textTransform: "none" }}
-          >
-            Batal
-          </Button>
-          <Button
-            onClick={() => {
-              void onConfirmSave();
-            }}
-            variant="contained"
-            sx={{
-              backgroundColor: "#c9a227",
-              textTransform: "none",
-              "&:hover": { backgroundColor: "#b48e1f" },
-            }}
-          >
-            Ya, Simpan
-          </Button>
-        </DialogActions>
-      </Dialog>
+      <GlobalDialog
+        open={showConfirmation}
+        title="Konfirmasi Penyimpanan"
+        message="Apakah Anda yakin ingin menyimpan perubahan data mahasiswa ini?"
+        onClose={onCancelConfirmation}
+        onConfirm={() => {
+          void onConfirmSave();
+        }}
+        confirmText="Ya, Simpan"
+        cancelText="Batal"
+        loading={form.formState.isSubmitting}
+      />
     </main>
   );
 }
