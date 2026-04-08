@@ -29,6 +29,7 @@ export function useEditMahasiswaForm(id: number): UseEditMahasiswaFormResult {
   const [loadingDetail, setLoadingDetail] = useState<boolean>(true);
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [pendingData, setPendingData] = useState<MahasiswaSchema | null>(null);
+  const [initialData, setInitialData] = useState<MahasiswaSchema | null>(null);
 
   const form = useForm<MahasiswaSchema>({
     resolver: zodResolver(mahasiswaSchema),
@@ -36,7 +37,7 @@ export function useEditMahasiswaForm(id: number): UseEditMahasiswaFormResult {
       nim: "",
       nama: "",
       email: "",
-      jurusan: "",
+      jurusan: "Informatika",
       tanggal_lahir: "",
     },
   });
@@ -56,13 +57,16 @@ export function useEditMahasiswaForm(id: number): UseEditMahasiswaFormResult {
         const detail = await getMahasiswaById(id);
 
         if (isMounted) {
-          form.reset({
+          const resetValues: MahasiswaSchema = {
             nim: detail.nim,
             nama: detail.nama,
             email: detail.email,
             jurusan: detail.jurusan,
             tanggal_lahir: detail.tanggal_lahir ?? "",
-          });
+          };
+
+          form.reset(resetValues);
+          setInitialData(resetValues);
         }
       } catch (error: unknown) {
         const message =
@@ -87,10 +91,21 @@ export function useEditMahasiswaForm(id: number): UseEditMahasiswaFormResult {
   }, [id, form]);
 
   const onSubmit = async (data: MahasiswaSchema) => {
-    if (!form.formState.isDirty) {
+    if (!initialData) {
+      setFormError("Data awal belum siap. Coba lagi.");
       return;
     }
 
+    const hasChanges = (Object.keys(data) as Array<keyof MahasiswaSchema>).some(
+      (key) => (data[key] ?? "") !== (initialData[key] ?? ""),
+    );
+
+    if (!hasChanges) {
+      setFormError("Tidak ada perubahan untuk disimpan.");
+      return;
+    }
+
+    setFormError("");
     setPendingData(data);
     setShowConfirmation(true);
   };

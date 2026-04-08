@@ -32,6 +32,44 @@ const textFieldSx = {
   },
 };
 
+const datePickerTextFieldSx = {
+  ...textFieldSx,
+  // DatePicker uses a different internal input structure than TextField.
+  // Override both MUI focus classes and native browser focus rings.
+  "& .MuiPickersOutlinedInput-root": {
+    borderRadius: "10px",
+    "&.Mui-focused .MuiPickersOutlinedInput-notchedOutline": {
+      borderColor: "#c9a227",
+      borderWidth: "2px",
+    },
+  },
+  "& .MuiPickersInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+    borderColor: "#c9a227",
+    borderWidth: "2px",
+  },
+  "& .MuiPickersOutlinedInput-notchedOutline": {
+    borderRadius: "10px",
+  },
+  "& .MuiPickersSectionList-root": {
+    borderRadius: "10px",
+  },
+  "& .MuiPickersSectionList-root:focus, & .MuiPickersSectionList-root:focus-visible":
+    {
+      outline: "none",
+      boxShadow: "none",
+    },
+  "& input:focus, & input:focus-visible": {
+    outline: "none",
+    boxShadow: "none",
+  },
+  "& *": {
+    WebkitTapHighlightColor: "transparent",
+  },
+  "& .MuiInputLabel-root.Mui-focused": {
+    color: "#111827",
+  },
+};
+
 interface MahasiswaFormProps {
   form: UseFormReturn<MahasiswaSchema>;
   onSubmit: (data: MahasiswaSchema) => Promise<void>;
@@ -152,7 +190,7 @@ export function MahasiswaForm({
                   error: !!errors.tanggal_lahir,
                   helperText: errors.tanggal_lahir?.message,
                   disabled: isLoading,
-                  sx: textFieldSx,
+                  sx: datePickerTextFieldSx,
                 },
               }}
             />
